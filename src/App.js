@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'; 
 import './App.css'; 
-import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom'; 
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+npm run build
+
+
 import { gsap } from 'gsap'; 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'; 
 import About from './Components/About';
 import Contact from './Components/Contact';
 import Donate from './Components/Donate';
+ 
  
 
 gsap.registerPlugin(ScrollTrigger);
