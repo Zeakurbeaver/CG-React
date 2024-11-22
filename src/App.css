@@ -1,38 +1,413 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+
+
+/* Default styles for the header */
+#main-header {
+  width: 100%;
+  background-color: #ffffff;
+  color: black; /* Adjust text color for better visibility */
+  padding: 0;
+  position: fixed;  /* Use fixed positioning to keep the header on top */
+  top: 0;  /* Stick to the top of the viewport */
+  left: 0;  /* Ensure it spans the entire width */
+  transition: transform 0.3s ease-in-out;  /* Smooth transition */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;  /* Make sure the header is above all other content */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#main-header {
+
+  z-index: 1000;  /* Keep the header on top of other elements */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header-content {
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 0 2rem; /* Adds padding on the sides */
+}
+
+.logo img {
+  height: 6rem; /* Adjust logo size for better responsiveness */
+  vertical-align: middle;
+}
+
+.nav-container {
+  display: flex;
+  gap: 5rem; /* Smaller gap to fit more links on smaller screens */
+  justify-content: center;
+}
+
+header a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 1rem; /* Adjusted padding for responsive hover effect */
+  transition: background-color 0.8s ease;
+}
+
+.header-menu:hover {
+  background-color: rgba(224, 224, 224, 0.8);
+  border-radius: 4px; /* Optional: rounded corners */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .nav-container {
+    gap: 1rem; /* Reduces spacing between links */
+  }
+  
+  .logo img {
+    height: 4rem; /* Reduces logo size on smaller screens */
+  }
+  
+  header a {
+    padding: 0.5rem 0.5rem; /* Further reduce padding on small screens */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#main-header {
+  transition: top 1s ease-in-out;
+}
+
+#main-header.hide {
+  top: -100px; /* Or any value that hides the header */
+}
+
+#main-header.show {
+  top: 0;
+}
+
+/*Appzoom/*
+
+/* Style for section to make it fill the whole screen */
+.section {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  
+  align-items: center; /* Vertically center the content */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove any padding */
+  z-index: 0;
+}
+
+/* Wrapper to make sure the video stays inside */
+.wrapper {
+  max-width: 100%; /* Ensure it can shrink with the screen size */
+  max-height: 100%; /* Prevent overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Class for the video container */
+.App-Zoom {
+  position: relative;
+  width: 100%; /* Make it responsive to width */
+  height: 50rem;
+  max-width: 100%; /* Ensure it doesn't overflow */
+
+}
+
+/* Video styling for responsiveness */
+.Img.video-1 {
+  width: 80.4%; /* Ensure it takes up available space */
+  height: 60rem; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures the video covers the area without distorting */
+  z-index: 0;
+}
+
+.section {
+  position: relative; /* Make the section a positioning context for the text */
+}
+
+.wrapper {
+  position: relative; /* Ensure the wrapper has relative positioning */
+}
+
+.App-Zoom {
+  position: relative; /* Keep the video within the wrapper */
+}
+
+.section {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 0; /* Ensure text is on top of the video */
+}
+
+.wrapper {
+  position: relative;
+}
+
+.App-Zoom {
+  position: relative;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.fade-text {
+  overflow: visible;
+  position: absolute;
+  font-family: 'Montserrat' ; 
+  top: 95rem; /* Centers vertically in the viewport */
+  left: 50%; /* Centers horizontally in the viewport */
+  transform: translate(-50%, -50%);
+  font-size: 5vw; /* Use viewport width for responsive font size */
+  color: white; /* Text color */
+  z-index: 10; /* Ensure text is on top of the video */
+  opacity: 0;
+  transition: opacity 1s ease; /* Smooth transition */
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+  text-align: center; /* Center the text horizontally */
+
+ 
+}
+
+
+.section,
+.wrapper {
+  overflow: visible; /* Allow content to overflow */
+}
+
+
+
+
+/*footer/*
+
+/* Ensure the page fills the entire height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh; /* Ensures the content takes up at least the full height */
+}
+
+/* Main content area takes all the available space */
+main {
+  flex-grow: 1;
+}
+
+/* Footer styling */
+#main-footer {
+  background-color: #333;
+  top: 120rem;
   color: white;
+  text-align: center;
+  width: 100%; /* Make footer responsive */
+  position: relative; /* Keep the footer in the normal flow */
+  margin-top: auto; /* Push the footer to the bottom of the page */
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+footer {
+  display: flex; /* Enables Flexbox layout */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: 11em; /* Adjust height as needed */
+  text-align: center; /* Fallback for inline content */
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.footer-content {
+  max-width: 100%; /* Ensure footer content is responsive */
+  margin: 0 0;
 }
+
+.footer-info p {
+  margin: 0 0;
+}
+
+.footer-icons {
+  margin-top: 10px;
+}
+
+.footer-icons a {
+  color: white;
+  margin: 0 2rem;
+  font-size: 1.25rem; /* Scalable font size */
+  text-decoration: none;
+}
+
+.footer-icons a:hover {
+  color: #ddd;
+}
+
+
+
+
+
+/*section-2/*/
+
+.additional-section {
+  position: relative;
+  z-index: 1;
+  top: 100rem; /* Space after NewSection */
+  background-color: rgba(255, 255, 255, 1); /* Ensure visible background */
+  padding-bottom: 60rem;
+  overflow: hidden;
+}
+
+.wrapper-2 {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 2rem; /* Space between video and buttons */
+}
+
+.Video-2 {
+  max-width: 90%; /* Ensure the video is responsive */
+  height: auto; /* Maintain aspect ratio */
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+/* Center the section on the screen */
+.section-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem; /* Full screen height */
+  margin: 0;
+  z-index: 0;
+  position: relative;
+  top: 130rem;
+  padding-bottom: 50rem;
+}
+
+/* Set up the grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns of equal size */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows of equal size */
+  gap: 1; /* Space between the grid items */
+  width: 48rem; /* Adjust width */
+   height: auto;
+  padding: 0; /* Remove padding */
+  overflow: hidden;  /* Ensure no unexpected content overflow */
+  
+
+}
+
+.grid-container .grid-item {
+  visibility: hidden;
+}
+
+
+
+/* Style for grid items */
+.grid-item-1, .grid-item-2, .grid-item-3, .grid-item-4 {
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  align-items: center; /* Center the images vertically */
+  opacity: 0;
+   
+}
+
+/* Make images responsive */
+.grid-item-1 img, .grid-item-2 img, .grid-item-3 img, .grid-item-4 img {
+  width: 100%; /* Ensure images take up 100% of the grid item width */
+  object-fit: contain; /* Make sure images scale properly and maintain aspect ratio */
+  margin-bottom: 0;
+}
+
+/* Hover effect for floating illusion */
+.grid-item img {
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Smooth transition for both transform and shadow */
+}
+img {
+  transition: transform 0.3s ease-out;
+}
+
+.grid-item img:hover {
+  transform: translateY(-10px) scale(1.30); /* Lift and zoom the image */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0); /* Create a deeper shadow for floating effect */
+  cursor: pointer; /* Change cursor to a pointer (clicker hand) */
+}
+
+.background-video {
+  position: absolute;
+  top: 13.5rem;
+  left: 50%;
+  width: 100vw;        /* Make the width 100% of the viewport width */
+  height: 70rem;       /* Make the height 100% of the viewport height */
+  object-fit: cover;   /* Ensure the video covers the viewport area */
+  transform: translate(-50%, -50%); /* Center the video exactly in the middle */
+  z-index: -1;         /* Make sure the video stays in the background */
+}
+
+.hidden-text {
+  z-index: 3;
+  position: relative;
+  transform: translate(-50%, -50%); /* Center the video exactly in the middle */
+}
+
+.text-item {
+  position: absolute;
+  grid-column: 1 / 2; /* Span between 1/1 and 1/2 */
+  grid-row: 1; /* Place in the first row */
+  align-self: center;
+  justify-self: center;
+  z-index: 2; /* Ensures text appears above images */
+   top: -10rem;
+  text-align: center;
+  border-radius: 5px;
+  opacity: 0;
+}
+
+
+
+.Section-hero-3 {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: relative;
+  height: 50rem;
+  top: 120rem; /* Reset top positioning */
+  left: 0; /* Reset left positioning */
+  padding-top: 20rem;
+  overflow: hidden;
+  width: 100%; /* Use full width of the parent container */
+  box-sizing: border-box;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0; /* Start hidden for all images except the first */
+  z-index: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-image:first-child {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+ 
+
+ 
